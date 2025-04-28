@@ -8,17 +8,17 @@ from gym_exercise_processor.rep_tracker.rep_tracker import RepTracker
 from gym_exercise_processor.exercise_classifier.default import DefaultClassifier
 
 class DefaultProcessor:
-    def __init__(self, model_path):
+    def __init__(self, model_path, seq_len=30):
         self._initialize_model(model_path)
         self._initialize_rep_tracker()
         self._initialize_visualization_styles()
+        self.seq_len = seq_len
         self.CUTOFF = 10
         self.BODY_CONNECTIONS = self._filter_body_connections()
 
     def _initialize_model(self, model_path):
         self.labels_map = DefaultClassifier.get_id2l_map()
         self.device = DefaultClassifier.get_device()
-        self.seq_len = 30
         self.seq = []
         self.model = self._load_model(model_path)
     
@@ -126,4 +126,3 @@ class DefaultProcessor:
 
     def release(self):
         self.pose.close()
-        self.rep_tracker.release()

@@ -17,4 +17,11 @@ setup(
         "kagglehub",
     ],
     python_requires=">=3.7",
+    entry_points={
+        "console_scripts": [
+            "classifier_pipeline=gym_exercise_processor.scripts.classifier_pipeline:main",
+            "process_video=gym_exercise_processor.scripts.process_video:main",
+            "process_camera=gym_exercise_processor.scripts.process_camera:main",
+        ],
+    },
 )

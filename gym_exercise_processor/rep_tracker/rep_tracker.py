@@ -41,6 +41,3 @@ class RepTracker:
 
     def get_correct_count(self):
         return self.exercise.correct_reps
-
-    def release(self):
-        self.pose.close()

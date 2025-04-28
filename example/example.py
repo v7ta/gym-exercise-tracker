@@ -1,10 +1,10 @@
 import cv2
-from gym_exercise_processor.real_time_processor import DefaultProcessor
+from gym_exercise_processor.real_time_processor.default import DefaultProcessor
 
 if __name__ == "__main__":
     model_path = "checkpoint.pth"
 
-    processor = DefaultProcessor(model_path)
+    processor = DefaultProcessor(model_path, seq_len=128) # seq_len is the length of the input sequence for the model
 
     cap = cv2.VideoCapture(0)  # Use webcam, or replace with video file path
     while cap.isOpened():
