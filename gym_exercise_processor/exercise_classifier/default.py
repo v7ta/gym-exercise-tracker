@@ -42,10 +42,10 @@ class DefaultClassifier:
 
     @staticmethod
     def get_labels():
-        return [
+        return sorted([
             "barbell biceps curl", "push-up", "squat",
-            "shoulder press", "pull up", "deadlift"
-        ]
+            "shoulder press", "pull Up", "deadlift"
+        ])
 
     @staticmethod
     def get_l2id_map():
